@@ -1,10 +1,12 @@
 package gtccyingmm;
 import static spark.Spark.*;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URL;
 import java.nio.file.Files;
@@ -150,6 +152,46 @@ public class Main {
 	                OutputStream outputStream = new FileOutputStream(path);
 	                IOUtils.copy(inputStream, outputStream);
 	                outputStream.close();
+	            }
+	            
+	            System.out.println("\"Upload\"");
+	            System.out.println(path);
+	            if (path.contains(".amr")) {
+	            	File file = new File(path);
+	            	File ffmpeg = new File("ffmpeg\\bin");
+	            	ProcessBuilder builder = new ProcessBuilder(
+	                        "cmd.exe", "/c", "ffmpeg.exe -i "+"\""+file.getAbsolutePath()+"\" "+"\""+file.getAbsolutePath().replace(".amr", ".wav")+"\"");
+	                    builder.redirectErrorStream(true);
+	                    Process p = builder.start();
+	                    System.out.println("ffmpeg.exe -i "+"\""+file.getAbsolutePath()+"\" "+"\""+file.getAbsolutePath().replace(".amr", ".wav")+"\"");
+	                    BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	                    String line;
+	                    while (true) {
+	                        line = r.readLine();
+	                        if (line == null) { break; }
+	                        System.out.println(line);
+	                    }
+	                    path=file.getAbsolutePath().replace(".amr", ".wav");
+	            
+	            }
+	            
+	            if (path.contains(".m4a")) {
+	            	File file = new File(path);
+	            	File ffmpeg = new File("ffmpeg\\bin");
+	            	ProcessBuilder builder = new ProcessBuilder(
+	                        "cmd.exe", "/c", "ffmpeg.exe -i "+"\""+file.getAbsolutePath()+"\" "+"\""+file.getAbsolutePath().replace(".m4a", ".wav")+"\"");
+	                    builder.redirectErrorStream(true);
+	                    Process p = builder.start();
+	                    System.out.println("ffmpeg.exe -i "+"\""+file.getAbsolutePath()+"\" "+"\""+file.getAbsolutePath().replace(".m4a", ".wav")+"\"");
+	                    BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	                    String line;
+	                    while (true) {
+	                        line = r.readLine();
+	                        if (line == null) { break; }
+	                        System.out.println(line);
+	                    }
+	                    path=file.getAbsolutePath().replace(".m4a", ".wav");
+	            
 	            }
 	            
 	            Controller con = new Controller();
