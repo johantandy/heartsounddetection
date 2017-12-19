@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Heart Sound Detection</title>
+	
+	
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.min.css" rel="stylesheet">
+
+	<style>
+		
+		.nav-link{
+			font-size: 18px;
+			color: white;
+		}
+		
+		.nav-item{
+			background-color: #0069d9;
+			border-radius: 5px 5px 0px 0px;
+		}
+		
+		.nav-item > a:hover {
+		  color: white;
+		  opacity: 0.5;
+		  -webkit-transition: opacity 1.5s ease-in-out;
+		  -moz-transition: opacity 1.5s ease-in-out;
+		  -ms-transition: opacity 1.5s ease-in-out;
+		  -o-transition: opacity 1.5s ease-in-out;
+		  transition: opacity 1.5s ease-in-out;
+		}
+		
+		.nav-item > a.active:hover {
+		opacity: 1;
+		}
+		
+		.navbar {
+		  padding-top: 15px;
+		  padding-bottom: 15px;
+		  border: 0;
+		  border-radius: 0;
+		  margin-bottom: 0;
+		  font-size: 12px;
+	  }
+	</style>
+  </head>
+
+  <body>
+  
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-sm bg-light navbar-light bg-light static-top">
+      <div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Heart Sound Detection</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li style="margin-right:10px; margin-left:10px;"><a class="btn btn-primary" href="/">Home</a></li>
+			<li style="margin-right:10px; margin-left:10px;"><a class="btn btn-primary" href="/admin">Modify Train Data</a></li>
+			<li style="margin-right:10px; margin-left:10px;"><a class="btn btn-primary" href="/about">About</a></li>
+		</ul>
+      </div>
+    </nav>
+	<div class="container-fluid" style="padding-top:100px; padding-bottom:100px; background-color:#bfd7ff;">
+		<h2 style="margin-left:10%;">Singkat Cerita . . . 	</h2>
+		<p style="text-align:justify; margin-left:10%; margin-right:10%; font-size:20px;">Aplikasi <b>Heart Sound Detection</b> ini berguna untuk mendeteksi 
+		apakah terdapat suara jantung yang abnormal, terdapat 4 klasifikasi suara jantung pada Dataset A yaitu Suara Normal, Murmur, Extra Heart 
+		Sound dan Artifact lalu pada Dataset B terdapat 3 klasifikasi yaitu suara Normal, Murmur dan Extrasystole. Metode yang digunakan untuk 
+		extraksi ciri dari suara jantung yaitu GTCC (Gammatone Cepstral Coefficient) dan YIN Algorithm, Metode yang digunakan untuk klasifikasi
+		yaitu Gaussian Mixture Model.
+		</p>
+		<p style="text-align:justify; margin-left:10%; margin-right:10%; font-size:20px;">
+		Aplikasi ini 
+		dibuat oleh <b>Johan Tandy (535140033)</b> dibimbing oleh Ibu <b>Viny Christanti Mawardi S.Kom., M.Kom.</b> sebagai Pembimbing 1 dan Bapak 
+		<b>Agus Budi Dharmawan S.Kom, M.T., M.Sc.</b> sebagai pembimbing 2. 
+		</p>
+	</div>
+	
+	<!-- Testimonials -->
+    <section class="testimonials text-center bg-light">
+      <div class="container">
+        <!-- <h4 class="mb-4"> Aplikasi Heart Sound Detection ini berguna untuk mendeteksi apakah terdapat suara jantung yang abnormal, dibuat oleh Johan Tandy (535140033) dibimbing oleh Ibu Viny Christanti Mawardi S.Kom.M.Kom sebagai Pembimbing 1 dan Bapak Agus Budi Dharmawan S.Kom, M.T., M.Sc. sebagai pembimbing 2  -->
+		<!-- </h4> -->
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="img/viny.jpg" alt="">
+              <h5>Viny Christanti Mawardi S.Kom.M.Kom</h5>
+              <p class="font-weight-light mb-0">"Pembimbing 1"</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="img/johan.jpg" alt="">
+              <h5>Johan Tandy</h5>
+              <p class="font-weight-light mb-0">"Mahasiswa biasa yang haus ilmu !"</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="img/agus.jpg" alt="">
+              <h5>Agus Budi Dharmawan S.Kom, M.T., M.Sc.</h5>
+              <p class="font-weight-light mb-0">"Pembimbing 2"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+	
+	
+
+    
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            
+            <p class="text-muted small mb-4 mb-lg-0">&copy; Heart Sound Detection 2017. All Rights Reserved.</p>
+          </div>
+         
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
+
+ <script>
+   //form Submit action
+   var obj;
+   $("form").submit(function(evt){   
+      evt.preventDefault();
+      var formData = new FormData($(this)[0]);
+	 
+	   
+   $.ajax({
+       url: '/api/uploadtest',
+       type: 'POST',
+       data: formData,
+       async: false,
+       cache: false,
+       contentType: false,
+       enctype: 'multipart/form-data',
+       processData: false,
+       success: function (response) {
+        obj = JSON.parse(response);
+		var modal=$('#Result');
+		modal.find('#GTCC1').append('<p class="mf"><b>GTCC Dataset A: '+obj.gtcca+'</b></p>');
+		modal.find('#GTCC2').append('<p class="mf"><b>GTCC Dataset B: '+obj.gtccb+'</b></p>');
+		modal.find('#YIN1').append('<p class="mf"><b>Yin Dataset A: '+obj.yina+'</b></p>');
+		modal.find('#YIN2').append('<p class="mf"><b>Yin Dataset B: '+obj.yinb+'</b></p>');
+		modal.modal('show');	
+       }
+   });
+   return false;
+ });
+ 
+ //modal on close !! 
+ $("#Result").on("hidden.bs.modal", function(){
+ document.getElementById("file").value = "";
+    $("p").remove(".mf");
+});
+ 
+  $("#btnClear").button().click(function(){
+        document.getElementById("file").value = "";
+    });    
+ 
+</script>

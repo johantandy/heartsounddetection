@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<form id="login">
+<h1>Coba ketik facebook & coba kalau bukan facebook</h1>
+<input type="text" id="password" name="password"/>
+<input type="submit" id="btnLogin" value="login"/>
+</form>
+
+</body>
+</html>
+<script>
+var obj;
+   $("#login").submit(function(evt){	 
+      evt.preventDefault();
+      var formData = new FormData($(this)[0]);
+   $.ajax({
+       url: '/api/login',
+       type: 'POST',
+       data: formData,
+       async: false,
+       cache: false,
+	   enctype: 'multipart/form-data',
+       contentType: false,
+       processData: false,
+       success: function (response) {
+       
+        obj = JSON.parse(response);
+		if(obj.hasil==="bener"){
+		window.location = "http://www.facebook.com";
+		}
+		else{
+		alert("Gak bisa ke facebook , coba ketik facebook")
+		}
+       }
+   });
+   return false;
+ });
+</script>

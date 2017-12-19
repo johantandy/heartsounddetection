@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+	<style>
+	
+		.navbar {
+	      border-top:0; 
+		  border-right:0; 
+		  border-left:0; 
+		  border-bottom:1;
+		  border-bottom-width:3px;
+	      border-radius: 0;
+	      margin-bottom: 20px;
+	      font-size: 25px;
+	      letter-spacing: 2px;
+		  height: 60px;
+		}
+		
+		
+		#cont3 {
+			font-family:"Varela Round";
+		}
+		
+		.form-control{
+		 border-radius:0;
+		 border-top:0; 
+		 border-right:0; 
+		 border-left:0; 
+		 border-bottom:1;
+		}
+		
+		#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+
+	
+	</style>
+</head>
+
+<body>
+
+	<nav class ="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+			<div class="row">
+			<div class="col-md-4" style="position:absolute; left:40px; top: 3px;">
+				<h3 id="cari" style="color:#434343; position:absolute; left:40px; top: -15px;">Heart Sound Detection</h3>
+				<h3 style="font-size: 10px; position:absolute; left:40px; top:13px; width:300px">Thesis by : Johan Tandy (535140033)</h3>
+			</div>
+			
+			<div class="container-fluid">
+
+    <ul class="nav navbar-nav" style="position:absolute; left:680px; top: 3px">
+      <li><a href="/" >Home Detection</a></li>
+	  <li><a href="/about" >About</a></li>
+    </ul>
+  </div>
+		
+		</div>
+	</nav>
+	
+	
+	
+	<div id="load">
+	</div>
+	
+	
+	<div id="cont2" class="container-fluid" style="background-color: transparent; width: 1100px; color:white; font-family:Varela Round">
+
+		
+		<div id="boxCari">
+		<h3 class="col-md-3" style="font-size:20px; background-color:#292c2f; color:white; border:1px solid #292c2f; width:550px; height:40px; position:absolute; top:140px; left: 80px; border-radius: 5px 5px 0px 0px; padding-top:10px;">Dataset A GTCC & YIN</h3>
+		<h3 class="col-md-3" style="font-size:20px; background-color:#292c2f; color:white; border:1px solid #292c2f; width:550px; height:40px; position:absolute; top:140px; left: 680px; border-radius: 5px 5px 0px 0px; padding-top:10px;">Dataset B GTCC & YIN</h3>
+			
+		<form id="formgtccyina"  style="position:absolute; top:140px; left: 135px;" > 
+		
+		<div class="row" style="margin-top:60px;">
+			<div class="col-md-4" style="border:1px solid #292c2f; width: 550px; height:130px; padding-top:15px; margin-left:-40px; border-radius: 0px 0px 5px 5px;">
+				<div class="container-fluid">
+				<div class="row" style="padding-left:17px;">
+				<div class="col-md-6">
+				<select style="box-shadow:none; width:200px; opacity:1; margin-bottom:10px; margin-right:15px;" class="form-control col-md-2" name="selectGtccYinA" id="selectGtccYinA" required>
+					<option value="" selected disabled>Class</option>
+					<option value=0>Normal</option>
+					<option value=1>Murmur</option>
+					<option value=2>Extra Heart Sound</option>
+					<option value=3>Artifact</option>
+				</select>
+				</div>
+				<div class="col-md-6">
+				<label for="exampleInputFile" style="color:black; padding-bottom:10px" >File input (WAV only)</label>
+				<input type="file" class="form-control-file" style ="width:250px; color:black; opacity:1; margin-top:-15px; margin-right:40px" name="fileGtccYinA" id="fileGtccYinA" aria-describedby="fileHelp" accept=".wav" required>
+				</div>
+				</div>
+				
+	
+				
+				<div class="row" style="margin-top :10px">
+				<div class="col-md-3">
+				<input type="submit" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" value="Upload"></input>
+				</div>
+				<div class="col-md-3" style="">
+				<input type="button" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" id="TrainGtccA" value="Train GTCC"></input>
+				</div>
+				<div class="col-md-3" style="">
+				<input type="button" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" id="TrainYinA" value="Train YIN"></input>
+				</div>
+				<div class="col-md-3" style="">
+				<input type="button" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" id="btnClearA" value="Clear"></input>
+				</div>
+				</div>
+			
+				
+			</div>
+			
+			
+			
+			
+		
+		
+		</div>
+		</div>
+		</form>
+		
+		<form id="formgtccyinb" style="position:absolute; top:140px; left: 735px;"  > 
+		<div class="row" style="margin-top:60px;">
+			<div class="col-md-4" style="border:1px solid #292c2f; width: 550px; height:130px; padding-top:15px; margin-left:-40px; border-radius: 0px 0px 5px 5px;">
+				<div class="container-fluid">
+				<div class="row" style="padding-left:17px;">
+				<div class="col-md-6">
+				<select style="box-shadow:none; width:200px; opacity:1; margin-bottom:10px; margin-right:15px;" class="form-control col-md-2" name="selectGtccYinB" id="selectGtccYinB" required>
+					<option value="" selected disabled>Class</option>
+					<option value=0>Normal</option>
+					<option value=1>Murmur</option>
+					<option value=2>Extra Systole</option>
+				</select>
+				</div>
+				<div class="col-md-6">
+				<label for="exampleInputFile" style="color:black; padding-bottom:10px" >File input (WAV only)</label>
+				<input type="file" class="form-control-file" style ="width:250px; color:black; opacity:1; margin-top:-15px; margin-right:40px" name="fileGtccYinB" id="fileGtccYinB" aria-describedby="fileHelp" accept=".wav" required>
+				</div>
+				</div>
+				
+	
+				
+				<div class="row" style="margin-top :10px">
+				<div class="col-md-3">
+				<input type="submit" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" value="Upload"></input>
+				</div>
+				<div class="col-md-3" style="">
+				<input type="button" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" id="TrainGtccB" value="Train GTCC"></input>
+				</div>
+				<div class="col-md-3" style="">
+				<input type="button" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" id="TrainYinB" value="Train YIN"></input>
+				</div>
+				<div class="col-md-3" style="">
+				<input type="button" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px" id="btnClearB" value="Clear"></input>
+				</div>
+				</div>
+			
+				
+			</div>
+			</div>
+			
+			
+			
+			
+		
+		
+		</div>
+		
+		
+		</form>
+		
+	</div>
+	
+	<!-- Modal -->
+  <div class="modal fade" id="Resulta" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="color:black">
+        <div class="modal-header">
+			<h4 class="modal-title" id="titlea">Test Result</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+				<div class="row">
+                    <div id="titleinner" class="col-md-12">
+					
+                    </div>
+				</div>
+                <div class="row">
+                    <div id="c0" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="c1" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="c2" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="c3" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="accuracy" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="lle" class="col-md-12">
+                    </div>
+				</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closemodala" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="Resultb" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="color:black">
+        <div class="modal-header">
+			<h4 class="modal-title" id="titleb">Test Result</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+				<div class="row">
+                    <div id="titleinner" class="col-md-12">
+                    </div>
+				</div>
+                <div class="row">
+                    <div id="c0" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="c1" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="c2" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="accuracy" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="lle" class="col-md-12">
+                    </div>
+				</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closemodalb" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="mupload" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="color:black">
+        <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+				<div class="row">
+                    <div id="titleinner" class="col-md-12">
+                    </div>
+				</div>
+                <div class="row">
+                    <div id="c0" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="c1" class="col-md-12">
+                    </div>
+				</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closemodalb" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+	
+	
+</body>
+</html>
+
+<script>
+
+$( window ).load(function() {
+  // Run code
+   document.getElementById('load').style.visibility="hidden";
+});
+
+
+   //form Submit action
+   var obj;
+   $("#formgtccyina").submit(function(evt){	 
+      evt.preventDefault();
+      var formData = new FormData($(this)[0]);
+	  document.getElementById('load').style.visibility="visible";
+   $.ajax({
+       url: '/api/uploada',
+       type: 'POST',
+       data: formData,
+       async: false,
+       cache: false,
+       contentType: false,
+       enctype: 'multipart/form-data',
+       processData: false,
+       success: function (response) {
+	   document.getElementById('load').style.visibility="hidden";
+        obj = JSON.parse(response);
+		var modal=$('#mupload');
+		modal.find('#titlea').html('<h2><b>Upload Result</b></h2>');
+		modal.find('#titleinner').html('<h3><b>Upload Train Dataset A</b></h3>');
+		modal.find('#c0').append('<p><b>'+obj.gtcc+' to GTCC Database</b></p>');
+		modal.find('#c1').append('<p><b>'+obj.yin+' to YIN Database</b></p>');
+		modal.modal('show');	
+       }
+   });
+   return false;
+ });
+ 
+ $("#formgtccyinb").submit(function(evt){	 
+ document.getElementById('load').style.visibility="visible";
+      evt.preventDefault();
+      var formData = new FormData($(this)[0]);
+   $.ajax({
+       url: '/api/uploadb',
+       type: 'POST',
+       data: formData,
+       async: false,
+       cache: false,
+       contentType: false,
+       enctype: 'multipart/form-data',
+       processData: false,
+       success: function (response) {
+	   document.getElementById('load').style.visibility="hidden";
+        obj = JSON.parse(response);
+		var modal=$('#mupload');
+		modal.find('#titlea').html('<h2><b>Upload Result</b></h2>');
+		modal.find('#titleinner').html('<h3><b>Upload Train Dataset B</b></h3>');
+		modal.find('#c0').append('<p><b>'+obj.gtcc+' to GTCC Database</b></p>');
+		modal.find('#c1').append('<p><b>'+obj.yin+' to YIN Database</b></p>');
+		modal.modal('show');	
+       }
+   });
+   return false;
+ });
+ 
+	$("#Resulta").on("hidden.bs.modal", function(){
+    $("p").remove();
+});
+
+
+$("#Resultb").on("hidden.bs.modal", function(){
+    $("p").remove();
+});
+
+$("#mupload").on("hidden.bs.modal", function(){
+document.getElementById("fileGtccYinA").value = "";
+document.getElementById("fileGtccYinB").value = "";
+document.getElementById("selectGtccYinA").value = "";	
+document.getElementById("selectGtccYinB").value = "";		
+	
+
+    $("p").remove();
+});
+
+
+  $("#btnClearA").button().click(function(){
+        document.getElementById("fileGtccYinA").value = "";	
+    });    
+   $("#btnClearB").button().click(function(){
+        document.getElementById("fileGtccYinB").value = "";
+    });  
+
+	  
+	  
+	  $("#TrainGtccA").button().click(function(){
+	  document.getElementById('load').style.visibility="visible";
+	  
+        $.ajax({
+       url: '/api/trainGtccA',
+       type: 'GET',
+       async: true,
+       cache: false,
+       contentType: false,
+       processData: false,
+       success: function (response) {
+	   document.getElementById('load').style.visibility="hidden";
+        obj = JSON.parse(response);
+		var modal=$('#Resulta');
+		modal.find('#titlea').html('<h2><b>GTCC Train Result</b></h2>');
+		modal.find('#titleinner').html('<h3><b>Data Train Dataset A</b></h3>');
+		modal.find('#c0').append('<p><b>Normal : '+obj.class0+'</b></p>');
+		modal.find('#c1').append('<p><b>Murmur : '+obj.class1+'</b></p>');
+		modal.find('#c2').append('<p><b>Extra Heart Sound: '+obj.class2+'</b></p>');
+		modal.find('#c3').append('<p><b>Artifact :'+obj.class3+'</b></p>');
+		modal.find('#accuracy').append('<p><b>Accuracy : '+obj.accuracy+'</b></p>');
+		modal.find('#lle').append('<p><b>Likelihood : '+obj.likelihood+'</b></p>');
+		modal.modal('show');	
+       }
+   });
+    });
+    
+   $("#TrainGtccB").button().click(function(){
+   
+   document.getElementById('load').style.visibility="visible";
+   $.ajax({
+       url: '/api/trainGtccB',
+       type: 'GET',
+       async: true,
+       cache: false,
+       contentType: false,
+       processData: false,
+       success: function (response) {
+	   	   document.getElementById('load').style.visibility="hidden";
+	   obj = JSON.parse(response);
+		var modal=$('#Resultb');
+		modal.find('#titleb').html('<h2><b>GTCC Train Result</b></h2>');
+		modal.find('#titleinner').html('<h3><b>Data Train Dataset B</b></h3>');
+		modal.find('#c0').append('<p><b>Normal : '+obj.class0+'</b></p>');
+		modal.find('#c1').append('<p><b>Murmur : '+obj.class1+'</b></p>');
+		modal.find('#c2').append('<p><b>Extrasystole : '+obj.class2+'</b></p>');
+		modal.find('#accuracy').append('<p><b>Accuracy : '+obj.accuracy+'</b></p>');
+		modal.find('#lle').append('<p><b>Likelihood : '+obj.likelihood+'</b></p>');
+		modal.modal('show');
+		}
+		});
+    });
+	
+		  $("#TrainYinA").button().click(function(){
+		  	   document.getElementById('load').style.visibility="visible";
+        $.ajax({
+       url: '/api/trainYinA',
+       type: 'GET',
+       async: true,
+       cache: false,
+       contentType: false,
+       processData: false,
+       success: function (response) {
+	   	   document.getElementById('load').style.visibility="hidden";
+        obj = JSON.parse(response);
+		var modal=$('#Resulta');
+		modal.find('#titlea').html('<h2><b>YIN Train Result</b></h2>');
+		modal.find('#titleinner').html('<h3><b>Data Train Dataset A</b></h3>');
+		modal.find('#c0').append('<p><b>Normal : '+obj.class0+'</b></p>');
+		modal.find('#c1').append('<p><b>Murmur : '+obj.class1+'</b></p>');
+		modal.find('#c2').append('<p><b>Extra Heart Sound: '+obj.class2+'</b></p>');
+		modal.find('#c3').append('<p><b>Artifact :'+obj.class3+'</b></p>');
+		modal.find('#accuracy').append('<p><b>Accuracy : '+obj.accuracy+'</b></p>');
+		modal.find('#lle').append('<p><b>Likelihood : '+obj.likelihood+'</b></p>');
+		modal.modal('show');	
+       }
+   });
+    });
+    
+   $("#TrainYinB").button().click(function(){
+     document.getElementById('load').style.visibility="visible";
+   $.ajax({
+ 
+       url: '/api/trainYinB',
+       type: 'GET',
+       async: true,
+       cache: false,
+       contentType: false,
+       processData: false,
+       success: function (response) {
+	   document.getElementById('load').style.visibility="hidden";
+        obj = JSON.parse(response);
+		var modal=$('#Resultb');
+		modal.find('#titleb').html('<h2><b>YIN Train Result</b></h2>');
+		modal.find('#titleinner').html('<h3><b>Data Train Dataset B</b></h3>');
+		modal.find('#c0').append('<p><b>Normal : '+obj.class0+'</b></p>');
+		modal.find('#c1').append('<p><b>Murmur : '+obj.class1+'</b></p>');
+		modal.find('#c2').append('<p><b>Extrasystole: '+obj.class2+'</b></p>');
+		modal.find('#accuracy').append('<p><b>Accuracy : '+obj.accuracy+'</b></p>');
+		modal.find('#lle').append('<p><b>Likelihood : '+obj.likelihood+'</b></p>');
+		modal.modal('show');	
+		}
+		});
+    });
+	
+</script>

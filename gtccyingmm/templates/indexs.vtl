@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SISTEM PENDETEKSIAN KELAINAN IRAMA DETAK JANTUNG DENGAN GAUSSIAN MIXTURE MODEL</title>
+</head>
+<body>
+<h2>SISTEM PENDETEKSIAN KELAINAN IRAMA DETAK JANTUNG DENGAN GAUSSIAN MIXTURE MODEL </h2>
+<h2>Skripsi oleh : Johan Tandy (535140033) </h2>
+<hr>
+<div style="display:block">
+    <form action="/api/uploada" method="post" enctype="multipart/form-data">	
+    <select name="selecta">
+  <option value=0>Normal</option>
+  <option value=1>Murmur</option>
+  <option value=2>Extra Heart Sound</option>
+  <option value=3>Artifact</option>
+	</select>
+        
+        <label for="myfile">Select a file</label>
+        <input type="file" id="myfilea" name="myfilea"/>
+        <input type="submit" id="buttonUpload" value="Upload"/>
+        
+    </form>
+    
+    
+    <form action="/api/uploadb" method="post" enctype="multipart/form-data">
+    <select name="selectb">
+  <option value=0>Normal</option>
+  <option value=1>Murmur</option>
+  <option value=2>Extra Systole</option>
+</select>
+        
+        <label for="myfile">Select a file</label>
+        <input type="file" id="myfileb" name="myfileb"/>
+        <input type="submit" id="buttonUpload" value="Upload"/>
+    </form>
+	
+	<form action="/api/train" method="POST">
+	  <select name="selectdataset">
+  <option value=0>Dataset A</option>
+  <option value=1>Dataset B</option>
+</select>
+	<input type="submit" id="buttonTrain" value="Train"/>
+	</form>
+	
+	<form action="/api/predict" method="POST">
+	  <select name="selectdataset">
+  <option value=0>Dataset A</option>
+  <option value=1>Dataset B</option>
+</select>
+<label for="myfile">Select a file</label>
+        <input type="file" id="myfiletest" name="myfiletest"/>
+        <input type="submit" id="buttonUpload" value="Upload"/>
+	<input type="submit" id="buttonTrain" value="Train"/>
+	</form>
+</div>
+</body>
+</html>

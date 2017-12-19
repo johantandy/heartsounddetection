@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Heart Sound Detection</title>
+	
+	
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.min.css" rel="stylesheet">
+
+	<style>
+		
+		.nav-link{
+			font-size: 18px;
+			color: white;
+		}
+		
+		.nav-item{
+			background-color: #0069d9;
+			border-radius: 5px 5px 0px 0px;
+		}
+		
+		.nav-item > a:hover {
+		  color: white;
+		  opacity: 0.5;
+		  -webkit-transition: opacity 1.5s ease-in-out;
+		  -moz-transition: opacity 1.5s ease-in-out;
+		  -ms-transition: opacity 1.5s ease-in-out;
+		  -o-transition: opacity 1.5s ease-in-out;
+		  transition: opacity 1.5s ease-in-out;
+		}
+		
+		.nav-item > a.active:hover {
+		opacity: 1;
+		}
+	</style>
+  </head>
+
+  <body>
+  <?php
+  echo "test";
+  ?>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Heart Sound Detection</a>
+        <a class="btn btn-primary" href="/admin">Modify Train Data</a>
+      </div>
+    </nav>
+
+	<!-- BUAT INPUT SUARA DISINI !! -->
+    <!-- Masthead -->
+    <header class="masthead text-white text-center">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5">Upload or Record your heart sound !</h1>
+          </div>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+		  
+		  <ul class="nav nav-tabs">
+			<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#formUpload">Upload</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#formRecord">Record</a></li>
+		  </ul>
+		  <div class="tab-content" style="border:1px solid white; border-radius: 0px 5px; background-color: white; padding-top: 15px; padding-bottom: 15px;">
+			<div id="formUpload" class="tab-pane fade in active show">
+				<form>
+				  <div class="form-row">
+					<div class="col-12 col-md-12 mb-2 mb-md-0">
+						<input id="file" name="file" type="file" class="file" accept=".wav" style="color: black" required>
+						<a class="btn btn-primary" id="btnClear">Clear</a>
+						<input type="submit" class="btn btn-primary" id="btnSubmit"  value="Upload"></input>	
+					</div>
+				  </div>
+				</form>
+			</div>
+			<div id="formRecord" class="tab-pane fade">
+				<form>
+				  <div class="form-row">
+					<div class="col-12 col-md-12 mb-2 mb-md-0">
+						<input id="file" name="file" type="file" class="file" accept=".wav" style="color: black" required>
+						<a class="btn btn-primary" id="btnClear">Boom</a>
+						<input type="submit" class="btn btn-primary" id="btnSubmit"  value="Upload"></input>	
+					</div>
+				  </div>
+				</form>
+			</div>
+		</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+      <div class="container">
+	  <h1 class="mb-5">4 Heart Sound Classification in Dataset A!</h1>
+	  <h4 class="mb-5">Click the heart icon for more information !</h4>
+        <div class="row">
+			
+		   <div class="col-lg-3	">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3" data-toggle="modal" data-target="#amodalnormal">
+              <div class="features-icons-icon d-flex" >
+                <i class="icon-heart m-auto text-primary" ></i>
+              </div>
+
+              <h3>Normal</h3>
+            </div>
+          </div>
+		  <div class="col-lg-3	">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3"  data-toggle="modal" data-target="#amodalmurmur">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-heart m-auto text-primary" ></i>
+              </div>
+              <h3>Murmur</h3>
+            </div>
+          </div>
+		  <div class="col-lg-3	">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3" data-toggle="modal" data-target="#amodalextrahsound">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-heart m-auto text-primary"></i>
+              </div>
+              <h3>Extra Heart Sound</h3>
+            </div>
+          </div>
+		  <div class="col-lg-3	">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3" data-toggle="modal" data-target="#amodalartifact">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-heart m-auto text-primary"></i>
+              </div>
+              <h3>Artifact</h3>
+            </div>
+          </div>
+		  </div>
+		  <br>
+		    <br>  <br>
+		   <div class="container">
+	  <h1 class="mb-5">3 Heart Sound Classification in Dataset B!</h1>
+	  <h4 class="mb-5">Click the heart icon for more information !</h4>
+        <div class="row">
+		   <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3" data-toggle="modal" data-target="#amodalnormal">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-heart m-auto text-primary"></i>
+              </div>
+			  
+              <h3>Normal</h3>
+             
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3"  data-toggle="modal" data-target="#amodalmurmur">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-heart m-auto text-primary"></i>
+              </div>
+              <h3>Murmur</h3>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="features-icons-item mx-auto mb-0 mb-lg-3" data-toggle="modal" data-target="#amodalextrasys">
+              <div class="features-icons-icon d-flex">
+                <i class="icon-heart m-auto text-primary"></i>
+              </div>
+              <h3>Extrasystole</h3>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ <div class="container">
+	  <h1 class="mb-1">The Methods :</h1>
+        <div class="row">
+		</div>
+		</div>
+    <!-- Image Showcases -->
+    <section class="showcase">
+      <div class="container-fluid p-0">
+        <div class="row no-gutters">
+
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/gtcc.jpg');"></div>
+          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <h4>Gammatone Cepstral Coefficient</h4>
+            <p class="lead mb-0">is another FFT-based feature extraction
+technique in speech recognition systems. The technique is based on the Gammatone
+filter bank, which attempts to model the human auditory system as a series of
+overlapping bandpass filters.</p>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/yin.jpg');"></div>
+          <div class="col-lg-6 my-auto showcase-text">
+            <h2>YIN Alogrithm</h2>
+            <p class="lead mb-0">An algorithm is presented for the estimation of the fundamental frequency (F0) of speech or
+musical sounds.</p>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/gmm.jpg');"></div>
+          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+            <h2>Gaussian Mixture Model</h2>
+            <p class="lead mb-0">a probabilistic model for representing normally distributed subpopulations within an overall population. Mixture models in general don't require knowing which subpopulation a data point belongs to, allowing the model to learn the subpopulations automatically. Since subpopulation assignment is not known, this constitutes a form of unsupervised learning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials text-center bg-light">
+      <div class="container">
+        <h2 class="mb-5">Thesis By : </h2>
+        <div class="row">
+          
+          <div class="col-lg-12">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="img/johan.jpg" alt="">
+              <h5>Johan Tandy</h5>
+              <p class="font-weight-light mb-0">"Student at Tarumanagara University"</p>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+    </section>
+	
+	<div class="modal fade" id="amodalnormal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg	" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Normal Heart Sound</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>
+	  In the Normal category there are normal, healthy heart sounds. <br>
+	  A normal heart sound has a clear “lub dub, lub dub” pattern, with the time from “lub” to “dub” shorter than the time from “dub” to the next “lub” (when the heart rate is less than 140 beats per minute). 
+	  <br>Note the temporal description of “lub” and “dub” locations over time in the following illustration:
+
+<br><br>…lub……….dub……………. lub……….dub……………. lub……….dub……………. lub……….dub…<br><br>
+
+In medicine we call the lub sound "S1" and the dub sound "S2". 
+Most normal heart rates at rest will be between about 60 and 100 beats (‘lub dub’s) per minute. 
+However, note that since the data may have been collected from children or adults in calm or excited states, the heart rates in the data may vary from 40 to 140 beats or higher per minute. </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+	<div class="modal fade" id="amodalmurmur"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg	" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Murmur Heart Sound</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>
+	  Heart murmurs sound as though there is a “whooshing, roaring, rumbling, or turbulent fluid” noise in one of two temporal locations: 
+	  <br>1. between “lub” and “dub” <br>2. between “dub” and “lub”.  <br>
+	 <br>They can be a symptom of many heart disorders, some serious.
+	  <br>There will still be a “lub” and a “dub”. One of the things that confuses non-medically trained people is that murmurs happen between lub and dub or between dub and lub; not on lub and not on dub. 
+	  <br>Below, you can find an asterisk* at the locations a murmur may be :
+
+<br><br>…lub..****...dub……………. lub..****..dub ……………. lub..****..dub ……………. lub..****..dub …
+<br>
+or
+<br>…lub……….dub…******….lub………. dub…******….lub ………. dub…******….lub ……….dub…<br>
+</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="modal fade" id="amodalextrahsound"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg	" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Extra Heart Sound</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>
+	  Extra heart sounds can be identified because there is an additional sound, e.g. a “lub-lub dub” or a “lub dub-dub”. <br>
+An extra heart sound may not be a sign of disease.  However, in some situations it is an important sign of disease, which if detected early could help a person.<br>
+The extra heart sound is important to be able to detect as it cannot be detected by ultrasound very well. <br> 
+	  <br>Below, note the temporal description of the extra heart sounds:
+
+<br><br>…lub.lub……….dub………..………. lub. lub……….dub…………….lub.lub……..…….dub……. <br>
+or
+<br>…lub………. dub.dub………………….lub.……….dub.dub………………….lub……..…….dub. dub……<br>
+In medicine we call the lub sound "S1" and the dub sound "S2". 
+Most normal heart rates at rest will be between about 60 and 100 beats (‘lub dub’s) per minute. 
+However, note that since the data may have been collected from children or adults in calm or excited states, the heart rates in the data may vary from 40 to 140 beats or higher per minute. </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="amodalextrasys"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg	" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Extrasystole Heart Sound</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>
+Extrasystole sounds may appear occasionally and can be identified because there is a heart sound that is out of rhythm involving extra or skipped heartbeats, e.g. a “lub-lub dub” or a “lub dub-dub”. <br>
+(This is not the same as an extra heart sound as the event is not regularly occuring.) An extrasystole may not be a sign of disease.It can happen normally in an adult and can be very common in children.<br>
+However, in some situations extrasystoles can be caused by heart diseases. If these diseases are detected earlier, then treatment is likely to be more effective. <br> 
+	  <br>Below, note the temporal description of the extra heart sounds:
+
+<br><br>…........lub……….dub………..………. lub. ………..……….dub…………….lub.lub……..…….dub…….<br>
+or
+<br>…lub………. dub......………………….lub.…………………dub.dub………………….lub……..…….dub.……<br>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="modal fade" id="amodalartifact"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg	" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Artifact Heart Sound</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>
+	  In the Artifact category there are a wide range of different sounds, including feedback squeals and echoes, speech, music and noise.  <br>
+	  There are usually no discernable heart sounds, and thus little or no temporal periodicity at frequencies below 195 Hz. This category is the most different from the others.
+	  <br>It is important to be able to distinguish this category from the other three categories, so that someone gathering the data can be instructed to try again.
+
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Modal -->
+  <div class="modal fade" id="Result" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+			<h4 class="modal-title">Test Result</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+			<div class="container col-md-12">
+                <div class="row">
+                    <div id="GTCC1" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="GTCC2" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="YIN1" class="col-md-12">
+                    </div>
+				</div>
+				<div class="row">
+                    <div id="YIN2" class="col-md-12">
+                    </div>
+				</div>
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            
+            <p class="text-muted small mb-4 mb-lg-0">&copy; Heart Sound Detection 2017. All Rights Reserved.</p>
+          </div>
+         
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
+
+ <script>
+   //form Submit action
+   var obj;
+   $("form").submit(function(evt){   
+      evt.preventDefault();
+      var formData = new FormData($(this)[0]);
+   $.ajax({
+       url: '/api/uploadtest',
+       type: 'POST',
+       data: formData,
+       async: false,
+       cache: false,
+       contentType: false,
+       enctype: 'multipart/form-data',
+       processData: false,
+       success: function (response) {
+        obj = JSON.parse(response);
+		var modal=$('#Result');
+		modal.find('#GTCC1').append('<p class="mf"><b>GTCC Dataset A: '+obj.gtcca+'</b></p>');
+		modal.find('#GTCC2').append('<p class="mf"><b>GTCC Dataset B: '+obj.gtccb+'</b></p>');
+		modal.find('#YIN1').append('<p class="mf"><b>Yin Dataset A: '+obj.yina+'</b></p>');
+		modal.find('#YIN2').append('<p class="mf"><b>Yin Dataset B: '+obj.yinb+'</b></p>');
+		modal.modal('show');	
+       }
+   });
+   return false;
+ });
+ 
+ //modal on close !! 
+ $("#Result").on("hidden.bs.modal", function(){
+ document.getElementById("file").value = "";
+    $("p").remove(".mf");
+});
+ 
+  $("#btnClear").button().click(function(){
+        document.getElementById("file").value = "";
+    });    
+ 
+</script>

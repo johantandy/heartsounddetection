@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.js"></script>
+	<link href="https://rawgithub.com/indrimuska/jquery-editable-select/master/dist/jquery-editable-select.min.css" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+v
+	<style>
+	
+		.navbar {
+	      border-top:0; 
+		  border-right:0; 
+		  border-left:0; 
+		  border-bottom:1;
+		  border-bottom-width:3px;
+	      border-radius: 0;
+	      margin-bottom: 20px;
+	      font-size: 25px;
+	      letter-spacing: 2px;
+		  height: 60px;
+		}
+		
+		.container-fluid {
+			padding-top: 20px;
+			margin-top: 70px;
+
+			padding-bottom: 20px;
+		}
+		
+		#cont3 {
+			font-family:"Varela Round";
+		}
+		
+		.form-control{
+		 border-radius:0;
+		 border-top:0; 
+		 border-right:0; 
+		 border-left:0; 
+		 border-bottom:1;
+		}
+	
+		#myCarousel * {
+		border-radius:10px;
+		}
+		
+		#submitPenerbangan:hover {
+			background-color:transparent!important;
+		}
+
+		.footer-distributed{
+			background-color: #292c2f;
+			box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+			box-sizing: border-box;
+			width: 100%;
+			text-align: left;
+			font: normal 16px sans-serif;
+
+			padding: 45px 50px;
+			margin-top: 80px;
+		}
+
+		.footer-distributed .footer-left p{
+			color:  #8f9296;
+			font-size: 14px;
+			margin: 0;
+		}
+
+		.footer-distributed p.footer-links{
+			font-size:18px;
+			font-weight: bold;
+			color:  #ffffff;
+			margin: 0 0 10px;
+			padding: 0;
+		}
+
+		.footer-distributed p.footer-links a{
+			display:inline-block;
+			line-height: 1.8;
+			text-decoration: none;
+			color:  inherit;
+		}
+
+		.footer-distributed .footer-right{
+			float: right;
+			margin-top: 6px;
+			max-width: 180px;
+		}
+
+		.footer-distributed .footer-right a{
+			display: inline-block;
+			width: 35px;
+			height: 35px;
+			background-color:  #33383b;
+			border-radius: 2px;
+
+			font-size: 20px;
+			color: #ffffff;
+			text-align: center;
+			line-height: 35px;
+
+			margin-left: 3px;
+		}
+
+		@media (max-width: 600px) {
+
+			.footer-distributed .footer-left,
+			.footer-distributed .footer-right{
+				text-align: center;
+			}
+
+			.footer-distributed .footer-right{
+				float: none;
+				margin: 0 auto 20px;
+			}
+
+			.footer-distributed .footer-left p.footer-links{
+				line-height: 1.8;
+			}
+		}
+	
+	</style>
+</head>
+
+<body>
+
+	<	<nav class ="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+			<div class="row">
+			<div class="col-md-4" style="position:absolute; left:40px; top: 3px;">
+				<p id="cari" style="color:#434343; position:absolute; left:40px; top: 5px;">Heart Sound Detection</p>
+				<p style="font-size: 10px; position:absolute; left:40px; top:40px; width:300px">Thesis by : Johan Tandy (535140033)</p>
+			</div>
+			
+			<div class="container-fluid">
+
+    <ul class="nav navbar-nav" style="position:absolute; left:680px; top: 3px">
+      <li><a href="admin.php">Home</a></li>
+      <li><a href="dataseta.php" >Dataset A</a></li>
+      <li class="active"><a href="datasetb.php">Dataset B</a></li>
+      <li><a href="feature.php">Feature</a></li>
+    </ul>
+  </div>
+		
+		</div>
+	</nav>
+	
+	<div class="container" style="padding-top:100px">
+  <h2><B>DATASET A</B></h2>
+   <div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Filename</th>
+        <th>Data</th>
+        <th>Class</th>
+		<th>Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+      </tr>
+	  <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+		<td><input name="submit" type="submit" class="btn btn-default btn-block" style="transition-duration: 3s; background-color:#292c2f; border:1px solid #292c2f; color:white; outline:none; width:100px " value="Delete"></input></td>
+      </tr>
+	  <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+      </tr>
+	  <tr>
+        <td>1</td>
+        <td>Anna</td>	
+        <td>Pitt</td>
+        <td>35</td>
+      </tr>
+	  <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+      </tr>
+	  <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+      </tr>
+	  <tr>
+        <td>1</td>
+        <td>Anna</td>
+        <td>Pitt</td>
+        <td>35</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+	
+
+	<footer class="footer-distributed">
+		
+		<div class="footer-left">
+			
+			<p>Heart Sound Detection &copy; 2017</p>
+		</div>
+	</footer>
+
+
+	
+</body>
+</html>
