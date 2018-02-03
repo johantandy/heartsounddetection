@@ -1,3 +1,5 @@
 gtccyingmm/templates/* linguist-vendored
 gtccyingmm/public/* linguist-vendored
 gtccyingmm/src/main/resources/* linguist-vendored
+*.vtl linguist-language=Java
+*.js linguist-language=Java
