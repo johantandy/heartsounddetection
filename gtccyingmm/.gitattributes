@@ -1,3 +1,5 @@
 templates/* linguist-vendored
 public/* linguist-vendored
 src/main/resources/* linguist-vendored
+*.vtl linguist-language=Java
+*.js linguist-language=Java
